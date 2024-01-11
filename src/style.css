@@ -1,0 +1,484 @@
+@font-face {
+  font-family: 'PokemonHollow';
+  src: url('../fonts/Pokemon Hollow.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PokemonSolid';
+  src: url('../fonts/Pokemon Solid.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* *************************HEADER ***************************** */
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  margin-top: auto;
+  margin-bottom: auto;
+  background: black;
+  padding: 10px;
+  
+}
+
+.text{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+.lien_header{
+  width: 20%;
+}
+
+.image_header{
+  width: 70%;
+}
+img{
+  width: 10%;
+  height:  auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.input-container{
+  
+  display: flex;
+  flex-direction: row;
+  height: 20px;
+  background-color: #D9D9D9;
+  border-radius: 20px;
+  padding: 5px;
+  border: #D9D9D9 1px solid;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.input_container_invisible{
+  display: none;
+}
+
+input{
+  background-color: #D9D9D9;
+  border: none;
+
+  text-align: center;
+  
+}
+
+::placeholder{
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+ 
+}
+
+.icone{
+  color: black;
+  cursor: pointer;
+}
+
+:root {
+  
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+ a {
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  text-decoration: none;
+  color : black;
+}
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  font-family:'PokemonSolid', sans-serif;
+  text-shadow: 4px 4px 1px #2f66ac;
+  color: #f9cd04;
+  
+}
+
+h2{
+  font-family: 'Rubik', sans-serif;
+  padding: 6px;
+  color: white;
+  font-style: italic;
+  background-color: #DD4736;
+  border-radius: 20px;
+  text-align: center;
+  width: 50%;
+}
+
+#app {
+
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ background-color: #D9D9D9;
+
+ 
+}
+/* .card{
+  background-color: var(--couleur-plante);
+} */
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #3178c6aa);
+}
+
+
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* ************************* FOOTER ***************************** */
+footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+}
+
+.title_footer{
+  font-size: 36px;
+  font-family:'PokemonHollow', sans-serif;
+}
+
+.text_footer{
+  font-family: 'Rubik', sans-serif;
+  font-style: italic;
+}
+
+/* ************************* CARD LIST POKEMON ***************************** */
+
+.card_list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 20%;
+  min-width: 150px;
+  background-color: white;
+  border: black 1px solid ;
+  border-radius: 20px;
+}
+
+.card_text{
+  /* min-width: 120px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #DD4736;
+  border-radius: 20px 20px 0px 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  font-family: 'Rubik', sans-serif;
+  
+  color: white;
+  font-weight: bolder;
+  text-transform: capitalize;
+  font-style: italic;
+}
+
+.card_text_name{
+  font-family:'PokemonHollow', sans-serif;
+  color: white;
+ 
+}
+
+.card_image{
+  width: 150px;
+
+  height: auto;
+  margin: auto;
+  display: block;
+}
+
+.card_types{
+ padding-left: 20px;
+ padding-right: 20px;
+text-align: center;
+ border-radius: 20px;
+ text-transform: capitalize;
+ width: 30%;
+ font-weight: bolder;
+ font-family: 'Rubik', sans-serif;
+  /* color: white; */
+
+}
+
+.types{
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ flex-wrap: wrap;
+  margin-block-end: 1em;
+  margin-block-start: 1em;
+margin-left: 5px;
+margin-right: 5px;
+ gap : 10px;
+
+}
+
+.grass-class{
+  background-color: #3da224;
+}
+
+.fire-class{
+  background-color: #e72324;
+}
+
+.poison-class{
+  background-color: #923fcc;
+  color: white;
+}
+
+.flying-class{
+  background-color: #82baf0;
+}
+
+.water-class{
+  background-color: #2481f0;
+}
+
+.bug-class{
+  background-color: #92a212;
+}
+
+.normal-class{
+  background-color: #D9D9D9;
+}
+
+.electric-class{
+  background-color: #fac100;
+}
+
+.ground-class{
+  background-color: #92501b;
+  color: white;
+}
+
+.dark-class{
+  background-color: black;
+  color: white;
+}
+
+.ghost-class{
+  background-color: grey;
+  color: white;
+}
+
+.fairy-class{
+  background-color: #fdc3d6;
+}
+
+.fighting-class{
+  background-color: #e66f1e;
+}
+
+.psychic-class{
+  background-color: #c257c4;
+}
+
+.rock-class{
+  background-color: #b0ab82;
+}
+
+.ice-class{
+  background-color: #3dd9ff;
+}
+
+.dragon-class{
+  background-color: #4f60e2;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+ 
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* ***************************PAGE DETAIL ************************* */
+
+.card_detail{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border : solid 1px black;
+  width: 90%;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  background-color: white;
+}
+
+.card_detail_part_one{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap : 40px;
+  font-family: 'Rubik', sans-serif;
+  color: white;
+  font-size: 40px;
+  background-color: #DD4736;
+  border-radius: 20px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.order{
+  margin-top: auto;
+  margin-bottom: auto;
+ font-size: 18px;
+ 
+}
+
+.name{
+  text-transform: capitalize;
+  font-size: 40px;
+  padding: 5px;
+  text-align: center;
+  width: 70%;
+}
+
+.card_detail_part_two{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.card_detail_image{
+  width: 50%;
+  height: auto;
+}
+
+.column_text{
+  width: 40%;
+  height: 200px;
+  margin: 20px;
+  padding: 20px;
+  border: solid 3px #DD4736;
+  border-radius: 20px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+ 
+}
+
+.taille_hp{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.poids{
+  margin-bottom: 15px;
+}
+.abilities{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-transform: capitalize;
+  margin-bottom: 15px;
+}
+
+.types_detail{
+  display: flex;
+  flex-direction: row;
+  gap : 10px;
+}
+
+
+/* pour enlever le css par défaut */
+p{
+  margin-block-start: 0px;
+  margin-block-end : 0px;
+}
+
+@media screen and (max-width: 580px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .input-container{
+  width: 40%;
+  justify-content: center;
+  }
+ }
