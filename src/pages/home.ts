@@ -14,12 +14,12 @@ export const home = async () => {
           <div>
          
             <ul>
-              ${cardListPokemonHTML};
+              ${cardListPokemonHTML}
             </ul>
-            // ${pokemonDetailsHtml}
+             ${pokemonDetailsHtml}
           </div>
         ${footerHTML} 
-  //       `;
+         `;
 return homePageHtml
   
 } 

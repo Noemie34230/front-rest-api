@@ -8,16 +8,16 @@ const navigateToPokemonDetails = (pokemonName: string) => {
     // Mettez ici la logique pour naviguer vers la page de détails du Pokémon
     console.log(`Naviguer vers la page de détails pour le Pokémon: ${pokemonName}` + navigateToPokemonDetails);
   };
-export const renderCardListPokemon = async (): Promise<string> => {
+export const renderCardListPokemon = async (pokemons: any[] = []): Promise<string> => {
     try {
         const pokemonService = new PokemonService();
         const pokemons = await pokemonService.getAllPokemonsWithDetails();
 
         // Générer le HTML avec les données obtenues
-// ...
+
 const html = `
     <div class="card_list">
-        ${pokemons.map((pokemon: { name: any; order: any; image: any; types: any[] }) => {
+    ${(pokemons as unknown as Array<any>).map((pokemon: { name: any; order: any; image: any; types: any[] }) => {
           
             const arrayTypes = pokemon.types;
             // console.log(pokemon.name)
@@ -50,7 +50,12 @@ const html = `
         }).join('')}
     </div>
 `;
-// ...
+        const paginationHtml = `
+            <div class="pagination">
+                <button onclick="loadPreviousPage()">Précédent</button>
+                <button onclick="loadNextPage()">Suivant</button>
+            </div>
+        `;
 
 
         return html;

@@ -1,45 +1,4 @@
-// // server.ts
-// import express, { Request, Response } from 'express';
-// import { detailPage, home } from './pages';
 
-// const app = express();
-// const port = 3000;
-
-
-// // Route pour la page d'accueil
-// app.get('/', (_req: Request, res: Response) => {
-//   const content = home();
-//   res.send(content);
-// });
-
-// // Route pour les détails du Pokémon
-// app.get('/pokemon/:name', (req: Request, res: Response) => {
-//   const content = detailPage({ name: req.params.name });
-//   res.send(content);
-// });
-
-// // Démarrer le serveur
-// app.listen(port, () => {
-//   console.log(`Serveur en cours d'exécution sur http://localhost:${port}`);
-// });
-
-
-// src/router.ts
-// import {PokemonService} from './services';
-
-// const pokemonService = new PokemonService();
-// const pokemons = await pokemonService.getAllPokemonsWithDetails();
-
-// console.log(pokemons[0].name)
-
-// const namePokemons: string[] = [];
-// for (let i = 0; i < namePokemons.length; i++) {
-  
-//   namePokemons.push();
-  
-// }
-
-// console.log(namePokemons);
 
 export class Routes {
   public routes: { [key: string]: Function } = {};

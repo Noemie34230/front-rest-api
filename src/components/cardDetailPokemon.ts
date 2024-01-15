@@ -6,7 +6,7 @@ export const renderCardDetailPokemon = async (pokemonName: string): Promise<stri
     const pokemonService = new PokemonService();
     const pokemon = await pokemonService.getPokemonByName(pokemonName);
 
-    // Générer le HTML avec les données obtenues
+    // Génération du HTML avec les données obtenues
     const base_experienceHtml = pokemon.base_experience;
     const arrayTypes = pokemon.types;
     
@@ -42,9 +42,6 @@ export const renderCardDetailPokemon = async (pokemonName: string): Promise<stri
           </div>
         </div>  
           
-         
-          
-         
       </div>
     `;
 
@@ -52,7 +49,7 @@ export const renderCardDetailPokemon = async (pokemonName: string): Promise<stri
 
   } catch (error) {
     console.error(`Erreur lors de la récupération des données du Pokémon ${pokemonName}`, error);
-    // Gérer l'erreur ici et retourner une chaîne HTML d'erreur si nécessaire
+    
     return `<div>Erreur lors de la récupération des données du Pokémon ${pokemonName}</div>`;
   }
 };

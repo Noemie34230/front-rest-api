@@ -1,4 +1,4 @@
-import { PokemonService } from '../services'; // Assurez-vous de fournir le bon chemin
+import { Pokemon, PokemonService } from '../services'; 
 
 const pokemonService = new PokemonService();
 
@@ -23,7 +23,7 @@ export const renderHeader = (showSearchBar: boolean): string => {
 
 
 
-async function searchPokemon() {
+export async function searchPokemon() {
   const searchInput = document.getElementById("search") as HTMLInputElement;
 
   if (searchInput) {
@@ -32,21 +32,41 @@ async function searchPokemon() {
 
     try {
       const allPokemonsWithDetails = await pokemonService.getAllPokemonsWithDetails();
+      
+      // Filtrer les Pokémon correspondant au terme de recherche
+      const matchingPokemon = allPokemonsWithDetails.find(pokemon =>
+        pokemon.name.toLowerCase() === searchTerm
+      );
 
-      const cards = document.querySelectorAll('.card');
-
-      cards.forEach((card) => {
-        const nameElement = card.querySelector('.pokemon-name');
-        const name = nameElement ? nameElement.textContent?.toLowerCase() : '';
-
-        if (name && allPokemonsWithDetails.some((pokemon) => pokemon.name.toLowerCase() === name)) {
-          console.log("ça fonctionne");
-          
-        } else {
-          console.log("ça ne fonctionne pas");
-         
+        // Si la valeur de recherche est vide, j'affiche toutes les cartes
+        if (searchTerm === '') {
+          const cards = document.querySelectorAll('.card');
+          cards.forEach((card) => {
+            if (card instanceof HTMLElement) {
+              card.style.display = 'block';
+            }
+          });
+          return;
         }
-      });
+
+      if (matchingPokemon) {
+        console.log("Pokémon trouvé :", matchingPokemon);
+        // Affichage du Pokémon trouvé sur le navigateur
+        displaySinglePokemon(matchingPokemon);
+
+      
+        const cardContainer = document.querySelector<HTMLUListElement>('.card-container');
+        if (cardContainer) {
+          const matchingCard = cardContainer.querySelector(`[data-pokemon-name="${matchingPokemon.name}"]`);
+          if (matchingCard) {
+
+            matchingCard.classList.add('visible-card');
+          }
+        }
+      } else {
+        console.log("Aucun Pokémon trouvé pour le terme de recherche :", searchTerm);
+      
+      }
     } catch (error) {
       console.error('Erreur lors de la recherche des Pokémon avec détails', error);
     }
@@ -54,7 +74,6 @@ async function searchPokemon() {
     console.error('Champ de recherche non trouvé!');
   }
 }
-
 
 
 
@@ -70,3 +89,24 @@ export async function initSearch() {
 }
 
 
+function displaySinglePokemon(matchingPokemon: Pokemon) {
+  const cardList = document.querySelectorAll('.card');
+
+  // Parcourir les cartes pour trouver celle qui correspond au Pokémon recherché
+  cardList.forEach((card: Element) => {
+    const nameElement = card.querySelector('.pokemon-name');
+    const cardName = nameElement ? nameElement.textContent?.toLowerCase() : '';
+
+    if (cardName === matchingPokemon.name.toLowerCase()) {
+      // Cacher les autres cartes et afficher celle qui correspond au Pokémon recherché
+      // pour pouvoir utiliser style il faut que card soit une instance de HTMLELEMENT
+      if (card instanceof HTMLElement) {
+        card.style.display = 'block';
+      }
+    } else {
+      if (card instanceof HTMLElement) {
+        card.style.display = 'none';
+      }
+    }
+  });
+}
